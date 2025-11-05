@@ -1,0 +1,63 @@
+================
+What is SLF4J?
+================
+- SLF4J stands for Simple Logging Facade For Java
+- It has been long since SLF4J came into picture and adopted heavily by many projects all around.
+- But certain things never get over like the difference between abstract class and interface in Java.
+- Difference between SLF4J and Log4j is still a popular question among 'loggers'.
+- I've been asked this question multiple times,
+  so I thought to explain my answer so you guys also can understand this better.
+
+=============================================
+What is the difference b/w SLF4J and Log4j?
+=============================================
+- However if we elaborate this question it only deserves a single line answer
+  i.e. The question itself is wrong.
+- SLF4J and Log4j focus on different areas and they are not similar components.
+- SLF4J is a logging facade. SLF4J is Simple Logging Facade for Java.
+- It is only an abstraction layer to an underlying logging component.
+
+
+=========================
+SLF4J is not for logging
+=========================
+- It is not a logging component ands it does not do the actual logging.
+  Internally SLF4J will use logging frameworks to generate the actual logs in runtime.
+- We can configure any logging framework like Log4j or Logback or Java Logging.
+
+===========
+Comparison
+===========
+- Log4j is a logging component and it does the actual logging.
+- Logically SLF4J and Log4j are 2 different components.
+- If you want to compare SLF4J, then the right comparison would be 
+  to compare with Apache Commons Logging.
+- Simple Logging Facade for Java (SLF4J) is an API designed to 
+  give generic access to many logging frameworks; Log4j being one of them.
+- SLF4J is not a replacement for Log4J but it works along with it.
+
+
+================
+Implementation
+================
+
+import org.slf4j.Logger; 
+import org.slf4j.LoggerFactory;
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        Logger logger = LoggerFactory.getLogger(HelloWorld.class);
+        logger.info("Hello World");
+    }
+}
+
+- Now all you have to choose, which logging framework you need to use in runtime.
+  For that, you will have to include two jar files:
+    - SLF4J binding jar file
+    - Desired logging framework jar files
+
+- e.g. to use log4j in your project, you'll have to include given jar files:
+    - slf4j-log4j12-1.7.12.jar
+    - log4j-1.2.17.jar
+
+

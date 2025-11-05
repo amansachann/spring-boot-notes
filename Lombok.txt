@@ -1,0 +1,117 @@
+================
+Project Lombok
+================
+- "Boilerplate" is a term used to describe code that is repeated in many
+  parts of application with little alteration.
+
+- One of the most frequently voiced criticisms of the Java language is 
+  the volume of this type of code that is found in most projects.
+
+- Project Lombok aims to reduce the prevalence of some of the worst offenders
+  by replacing them with simple set of annotations.
+
+==============
+Installation
+==============
+- Project Lombok is available as a single jar file on website https://projectlombok.org/
+- It includes the APIs for development as an installer for IDE integration.
+
+===================
+Lombok Annotations
+===================
+- It is not uncommon for a typical java project to devote hundreds of lines of
+  code to the boilerplate required for defining simple data classes. These classes
+  generally contain number of fields, getters and setters for those fields, as well as
+  equals and hashCode implementations. In simplest scenarios, Project Lombok can reduce these
+  classes to required fields and a single @Data annotation.
+
+- Of course, the simplest scenarios are not necessarily the ones that developers face on a
+  day-to-day basis. For that reason, there are number of annotations in Project Lombok to allow
+  more fine grained control over the structure and behavior of a class. 
+
+Annotations:
+  - @Getter 
+  - @Setter 
+  - @GetterAndSetter 
+  - @NoArgConstructor
+  - @EqualsAndHashCode
+  - @AllArgsConstructor
+  - @Data 
+  - @CleanUp etc...
+
+===================
+@EqualsAndHashCode
+===================
+
+- This class level annotation will cause Lombok to generate both equals and hashCode methods, 
+  as the two are tied together intrinsically by the hashCode contract.
+
+- By default, any field in the class that is not static or transient will be considered by 
+  both methods. Much like @ToString, the exclude parameter is provided to prevent field from 
+  being included in the generated logic. One can also use the of parameter to list only those 
+  fields should be considered.
+
+======
+@Data 
+======
+- The @Data annotation is likely the most frequently used annotation in the Project Lombok toolset.
+- It combines the functionality of @ToString, @EqualsAndHashCode, @Getter and @Setter.
+- Essentially, using @Data on a class is the same as annotating the class with a default @ToString and @EqualsAndHashCode as well as annotating each field with both @Getter and @Setter.
+- Annotation a class with @Data also triggers Lombok's constructor generation. 
+  This adds a public constructor that takes any @NonNull or final fields as parameters. 
+  This provides everything needed for a Plain Old Java Object (POJO).
+
+=================
+Costs & Benefits
+=================
+- As with any technology choice, there are both positive and negative effects of using 
+ Project Lombok. Incorporating Lombok's annotations in a project can greatly reduce the 
+ number of lines of boilerplate code that are either generated in the IDE or written by hand. 
+ This results in reduced maintenance overhead, fewer bugs and more readable classes.
+
+- Project Lombok is largely aimed at filling gaps in the Java language. when used in combination
+  with annotation-based object-relational mapping (ORM) frameworks, the number of annotations 
+  on data classes can begin to get unwieldy. This is largely offset by the amount of code that 
+  is superseded by the Lombok annotations. However, those who shun the frequent use of 
+  annotations may choose to look the other way.
+
+
+================
+What's Missing?
+================
+Project Lombok provides the delombok utility for replacing the Lombok annotations 
+with equivalent source code. This can be done for an entire source directory via the 
+command line.
+
+java -jar lombok.jar delombok src -d src-delomboked
+
+============
+Limitations
+============
+- While Project Lombok does some dramatic things to make a developer's life easier, 
+  it has its limitations.
+- One important problem is the inability to detect the constructors of a superclass. 
+  This means that if a superclass has no default constructor any subclasses cannot use 
+  the @Data annotation without explicitly writing a constructor to make use of the available 
+  superclass constructor.
+
+============
+Controversy
+============
+- A number of issues have been raised against the use of Project Lombok. 
+  The most common argument holds that annotations were intended for "meta" information 
+  and are not to be used in such a way that would leave the codebase unable to be compiled 
+  were they removed.
+- This is certainly the situation with Lombok annotations. 
+  New methods result from these annotations that are intended to be used not only 
+  by a framework, but by other parts of the application. Project Lombok's development-time 
+  support is its bread and butter, but this does have consequences, not the least of which 
+  is limited IDE support.
+
+========
+Summary
+========
+Project Lombok is a powerful tool for the pragmatic developer. 
+It provides a set of useful annotations for eliminating a tremendous amount of boilerplate 
+code from your Java classes. In the best cases, a mere five characters can replace hundreds 
+of lines of code. The result is Java classes that are clean, concise and easy to maintain.

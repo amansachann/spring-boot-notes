@@ -1,0 +1,177 @@
+Logging in Spring Applications
+
+- Logging is the process of writing log messages during the execution of a program to a central place.
+
+- This logging allows you to report and persist error and warning messages as well as info messages (e.g., runtime statistics) 
+  so that the messages can later be retrieved and analyzed.
+
+- This is very helpful to understand exceptions in the applications which are deployed in higher environments like SIT, UAT, PILOT and PROD etc.
+
+==============================================================
+public class ReportGenerator {
+
+    public void generate() {
+        System.out.println("Method Execution Started");
+
+        // Business logic
+        
+        System.out.println("Method Execution Ended");
+    }
+}
+
+===================================
+Drawbacks of System.out.println()
+===================================
+- If we use SOP (System.out.print()) statements to print log messages, then we can run into some disadvantages
+
+- We can print log messages on the console only. So, when the console is closed, we will lose all of those logs.
+
+- We can't store log messages in any permanent place. These messages will print one by one on the console because it is a single-threaded environment.
+
+- To overcome these problems, the Log4j framework came into the picture. Log4j is an open source framework provided by Apache for Java projects.
+
+====================
+Log4j Introduction
+====================
+- Apache Log4j is a Java-based logging utility. It was originally written by Ceki Gülcü and is part of the 
+  Apache Logging Services project of the Apache Software Foundation. Log4j is one of several Java logging frameworks.
+
+- log4j is a reliable, fast and flexible logging framework (APIs) written in Java, which is distributed under the Apache Software License.
+
+
+=============================
+Pros and Cons of Logging
+=============================
+- Logging is an important component of the software development. A well-written logging code offers quick debugging, 
+  easy maintenance, and structured storage of an application's runtime information.
+
+- Logging does have its drawbacks also. It can slow down an application. If too verbose, it can cause scrolling blindness. 
+  To alleviate these concerns, log4j is designed to be reliable, fast and extensible.
+
+=======================
+Log4j Main Components 
+=======================
+Log4j has 3 main Components:
+
+- Loggers: Responsible for logging the information
+
+- Appenders: Responsible for publishing logging information to various preferred destinations
+
+- Layouts: Responsible for formatting logging information in different styles
+
+ 
+========
+Logger
+========
+- Logger is a class in the org.apache.log4j.* package. 
+- We have to initialize one Logger object for each Java class. 
+- We use Logger's methods to generate log statements. 
+- Log4j provides the factory method to get Logger objects.
+
+Syntax to get Logger object
+static Logger logger = Logger.getLogger(CurrentClass.class.getName());
+
+----------------------------------
+public class ReportGenerator {
+
+    static Logger logger = Logger.getLogger(ReportGenerator.class);
+
+    public void generate() {
+        // Business logic         
+    }
+}
+-----------------------------------
+
+
+=====================
+Log levels
+=====================
+
+LEVEL    | DESCRIPTION
+---------------------------------------------------------------
+ALL      | All levels including custom levels.
+         |
+DEBUG    | Designates fine-grained informational events that are
+         | most useful to debug an application.
+         |
+INFO     | Designates informational messages that highlight the
+         | progress of the application at a coarse-grained level.\
+         |
+WARN     | Designates potentially harmful situations.
+         |
+ERROR    | Designates error events that might still allow the
+         | application to continue running.
+         |
+FATAL    | Designates very severe error events that will
+         | presumably lead the application to abort.
+         |
+OFF      | The highest possible rank and is intended to turn off
+         | logging.
+         |
+TRACE    | Designates finer-grained informational events than the
+         | DEBUG.
+---------------------------------------------------------------
+
+How the log levels work?
+
+A log request of level p in a logger with level q is enabled if p >= q. 
+This rule is at the heart of log4j. It assumes that levels are ordered. 
+For the standard levels, we have ALL < DEBUG < INFO < WARN < ERROR < FATAL < OFF.
+
+
+=================
+Log Level Order
+=================
+
+Log4J Levels | TRACE | DEBUG | INFO | WARN | ERROR | FATAL
+------------------------------------------------------------
+TRACE Level  |   Y   |   Y   |   Y  |   Y  |   Y   |   Y
+DEBUG Level  |   N   |   Y   |   Y  |   Y  |   Y   |   Y
+INFO Level   |   N   |   N   |   Y  |   Y  |   Y   |   Y
+WARN Level   |   N   |   N   |   N  |   Y  |   Y   |   Y
+ERROR Level  |   N   |   N   |   N  |   N  |   Y   |   Y
+FATAL Level  |   N   |   N   |   N  |   N  |   N   |   Y
+ALL Level    |   Y   |   Y   |   Y  |   Y  |   Y   |   Y
+OFF Level    |   N   |   N   |   N  |   N  |   N   |   N
+------------------------------------------------------------
+
+=========================================
+Appender
+=========================================
+
+Appenders are used to write messages into a file or console or DB or SMTP
+
+Log4j has different types of appenders:
+ - JDBC Appender
+ - File Appender
+ - Console Appender
+ - SMTP Appender
+
+=========================================
+Layout
+=========================================
+This is used to define the formatting in which logs will print in a repository.
+We have different types of layouts:
+ - PatternLayout
+ - SimpleLayout
+ - XMLLayout
+ - HTMLLayout
+
+
+==========================================
+Steps to Plug Log4j into project
+==========================================
+Typically, the steps to use log4j in your Java application are as follows:
+ - Download latest log4j distribution / use maven configuration
+ - Add log4j's jar library into your program's class path.
+ - Create log4j's configuration.
+ - Initialize log4j with the configuration.
+ - Create a logger.
+ - Put logging statements into your code.
+
+
+
+
+
+
+
