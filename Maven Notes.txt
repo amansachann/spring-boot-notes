@@ -1,0 +1,5 @@
+=============
+Maven Notes
+=============
+-> Maven is a build tool for Java projects.
+-> It is created by Apache foundation.
