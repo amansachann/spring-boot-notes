@@ -607,7 +607,9 @@ public class Application {
 		Page<Student> page = studentRepo.findAll(pageReq);
 		List<Student> students = page.getContent();
 		students.forEach(System.out::println);
-
+		long pageCount = students.getTotalPages();
+        System.out.println("Total Pages: " + pageCount);
+        System.out.println("Total Elements: " + students.getTotalElements());
 	}
 }
 
@@ -627,6 +629,8 @@ public class Application {
 
 	}
 }
+
+Note: In findAll both paging and sorting cannot be done simultaneously.
 
 
 ================
