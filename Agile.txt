@@ -1,0 +1,79 @@
+==========================================
+What is Software Development Life Cycle
+==========================================
+-> The SDLC refers to a methodology.
+-> SDLC clearly defines the process of creating high-quality software project. 
+-> SDLC methodology focuses on below phases of software development: 
+        1. Requirement Analysis
+        2. Planning
+        3. Software Design or Architecture Design
+        4. Development
+        5. Testing
+        6. Deployment
+        7. Support
+-> We have several methodologies in SDLC:
+        1. Waterfall Model 
+        2. V-Model 
+        3. Spiral Model 
+        4. Agile Model 
+
+================
+WaterFall Model
+================
+-> Waterfall Model introduced in 1970. 
+-> The waterfall model was the first model introduced as process model.
+-> It is a linear or sequential approach to develop software project.
+-> It is also called as step by step approach to develop the project.
+-> In this model we will complete only one phase then we will move on to next phase. 
+
+==============================
+When to use WaterFall Model?
+==============================
+-> When requirements are fixed.
+-> When Project is small.
+-> When budget is fixed.
+
+==================================
+Disadvantages of WaterFall Model
+==================================
+-> Risk is high
+-> Requirements can't be changed
+-> We can't go to previous phase
+-> Testing will happen at the end
+-> Client involvement is very less
+
+==================
+Agile Methodology
+==================
+-> Agile is one of the SDLC methodology.
+-> It is a way to manage the project by breaking the project into several phases.
+-> Agile is also called as iterative approach to develop and deliver the project.
+-> We can achieve continuous development and continuous delivery using Agile.
+-> It involves constant collaboration with stake holders.
+-> Continuous improvement at every stage.
+-> Client feedback is most critical part in Agile.
+-> In Agile, Planning, Implementing, Testing, and Delivering is a cyclic process.
+
+==================
+Agile Terminology
+==================
+-> Backlog Grooming:  Team meeting to identify pending works
+-> Stories: Tasks (work)
+-> Story Points: Duration to complete the story (3 points - 1 day, 5 points - 2 days, 8 points - 3 days)
+-> Sprint Planning: Team meeting to identify priority stories to work
+-> Sprint: Set of stories to complete (Sprint Goal) & Sprint Duration (2 weeks - 10 working days)
+-> Scrum: It is a process (Daily team meeting to discuss work status - 15-20 mins)
+-> Retrospective: Review meeting after sprint(s) completed (2-3 sprints)
+                (What went well, What went wrong, achievements, improvements,
+                lessons learnt, new ideas)
+
+===================
+Agile Team Members
+===================
+-> Product Owner: Responsible for deliverables
+-> Scrum Master: Who will manage agile teams
+-> Tech Lead: Senior team member (who will help team members technically)
+-> Team Member: Developers and Testers
+
+Agile team size: 7-10 teams (as per industry)
+
