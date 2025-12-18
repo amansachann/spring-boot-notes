@@ -150,9 +150,14 @@ What is Intereoperability ?
 
 
 Note: By using RESTFUl Services we can develop Intereoperable applications.
+=> Advantages of Intereoperability:
+	1. Code Reusability
+	2. B2B communication
+
+=> XML and JSON are Intereoperable formats.
 
 
-=======
+======
 XML
 ======
 
@@ -273,12 +278,16 @@ public class UnmarshalDemo {
 		System.out.println(p);
 	}
 }
-========================================================================================================
+======================================== Maven ========================================================
 <dependency>
     <groupId>javax.xml.bind</groupId>
     <artifactId>jaxb-api</artifactId>
     <version>2.3.1</version>
 </dependency>
+========================================= Gradle ======================================================
+implementation("javax.xml.bind:jaxb-api:2.3.1")
+implementation ('org.glassfish.jaxb:jaxb-runtime:2.3.1')
+implementation ('javax.activation:activation:1.1.1')
 =======================================================================================================
 
 =======
