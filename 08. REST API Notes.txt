@@ -522,14 +522,13 @@ Step-5) Test our REST Application using POSTMAN tool
 ===================
 Media Types 
 ==================
+Spring boot side:
+    - consumes : It represents in which format REST API method can take input
+    - produces : It represets in which format REST API method can provide output
 
-consumes : It represents in which format REST API method can take input
-
-produces : It represets in which format REST API method can provide output
-
-Content-Type Header : It represents in which format client sending data to REST API in req body
-
-Accept Header : It represents in which format client expecting response from REST API.
+Client Side:
+    - Content-Type Header : It represents in which format client sending data to REST API in req body
+    - Accept Header : It represents in which format client expecting response from REST API.
 
 
 ==================================== Media Types ==================================
@@ -568,7 +567,7 @@ public class CustomerRestController {
 		System.out.println(customer);
 		// logic to insert customer in db
 		return new ResponseEntity<>("Customer Saved", HttpStatus.CREATED);
-	}
+	} 
 }
 ======================================================================================================
 
